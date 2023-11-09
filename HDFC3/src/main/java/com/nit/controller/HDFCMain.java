@@ -18,7 +18,7 @@ import com.nit.Entity.Address;
 import com.nit.Entity.Customer;
 import com.nit.service.*;
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://thirumalesh-kt.github.io")
 public class HDFCMain {
 
 	@Autowired
