@@ -21,7 +21,7 @@ jobs:
         cache: maven
 
     - name: Build with Maven
-      run: mvn -f BankBackEnd/pom.xml clean install
+      run: mvn -f HDFC3/pom.xml clean install
 
     - name: Clear Docker cache
       run: docker builder prune -a -f
@@ -32,7 +32,7 @@ jobs:
         image: thirumaleshd7013/atm
         tags: ${{ github.sha }}
         registry: docker.io
-        dockerfile: BankBackEnd/Dockerfile
+        dockerfile: HDFC3/Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
@@ -52,5 +52,5 @@ jobs:
 
      
       - name: run Docker container
-        run: sudo docker run -d -p 8080:8080 --name atm-container thirumaleshd7013/atm:${{ github.sha }}
+        run: sudo docker run -d -p 8081:8081 --name atm-container thirumaleshd7013/atm:${{ github.sha }}
 
