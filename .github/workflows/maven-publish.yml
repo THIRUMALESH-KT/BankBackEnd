@@ -1,0 +1,56 @@
+name: Java CI with Maven
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+
+    - name: Build with Maven
+      run: mvn -f BankBackEnd/pom.xml clean install
+
+    - name: Clear Docker cache
+      run: docker builder prune -a -f
+
+    - name: Build & push Docker image
+      uses: mr-smithers-excellent/docker-build-push@v6
+      with:
+        image: thirumaleshd7013/atm
+        tags: ${{ github.sha }}
+        registry: docker.io
+        dockerfile: BankBackEnd/Dockerfile
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+
+
+  deploy:
+    needs: build
+    runs-on: [springbootinstance1]
+    steps:
+      - name: Install Docker
+        run: |
+          sudo apt-get update
+          sudo apt-get -y install docker.io
+
+      - name: delete old container
+        run: sudo docker rm -f atm-container
+
+     
+      - name: run Docker container
+        run: sudo docker run -d -p 8080:8080 --name atm-container thirumaleshd7013/atm:${{ github.sha }}
+
