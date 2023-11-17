@@ -1,4 +1,7 @@
-FROM openjdk:8
+FROM openjdk:17
 EXPOSE 8080
-ADD target/HDFC3.jar HDFC3.jar
-ENTRYPOINT [ "java","-jar","/HDFC3.jar" ]
+
+
+COPY HDFC3/target/hdfc-image.jar /hdfc-image.jar
+ENTRYPOINT ["java", "-jar", "/hdfc-image.jar"]
+
