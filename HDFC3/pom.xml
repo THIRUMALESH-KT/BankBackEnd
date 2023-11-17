@@ -68,7 +68,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<finalName>HDFC3</finalName>
+		<finalName>hdfc-image</finalName>
 	</build>
 
 </project>
