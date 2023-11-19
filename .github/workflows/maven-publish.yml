@@ -40,7 +40,7 @@ jobs:
 
   deploy:
     needs: build
-    runs-on: [springinstance1]
+    runs-on: [springbootinstance1]
     steps:
       - name: Install Docker
         run: |
