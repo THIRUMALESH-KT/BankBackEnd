@@ -40,7 +40,7 @@ jobs:
 
   deploy:
     needs: build
-    runs-on: [springbootinstance1]
+    runs-on: [atmrunner]
     steps:
       - name: Install Docker
         run: |

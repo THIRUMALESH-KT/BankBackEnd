@@ -24,7 +24,7 @@ public class HDFCMain {
 	private CustomerService service;
 	@GetMapping("/hello")
 	public ResponseEntity<Object> main() {
-		return new ResponseEntity<Object>("bad request",HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<Object>("hello page",HttpStatus.OK);
 		//
 	}
 	
