@@ -24,8 +24,8 @@ import lombok.NoArgsConstructor;
 public class Customer {
 
 	 @Id
-	    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer_seq")
-	    @SequenceGenerator(name = "customer_seq", sequenceName = "CUSTOMER_SEQ", allocationSize =1, initialValue = (int) 100000000000L)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer_seq")
+	@SequenceGenerator(name = "customer_seq", sequenceName = "CUSTOMER_SEQ", allocationSize =1, initialValue = (int) 100000000000L)
 	private Long accountNumber;
 	private String bankName="HDFC";
 	private String iFSCcode="HDFC00001";
