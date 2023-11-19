@@ -18,7 +18,9 @@ import com.nit.Entity.Address;
 import com.nit.Entity.Customer;
 import com.nit.service.*;
 @RestController
-@CrossOrigin(origins = "https://atmdemoapplication.netlify.app/")
+//@CrossOrigin(origins = "https://atmdemoapplication.netlify.app/")
+//@CrossOrigin(origins = "http://atmdemoapplication.netlify.app/")
+//@CrossOrigin(origins="http://localhost:4200")
 public class HDFCMain {
 
 	@Autowired
