@@ -1,5 +1,5 @@
 FROM openjdk:17
-EXPOSE 8080
+EXPOSE 8081
 
 
 COPY HDFC3/target/HDFC3.jar /HDFC3.jar
