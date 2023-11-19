@@ -40,7 +40,7 @@ jobs:
 
   deploy:
     needs: build
-    runs-on: [springbootinstance1]
+    runs-on: [ip-172-31-36-63]
     steps:
       - name: Install Docker
         run: |
