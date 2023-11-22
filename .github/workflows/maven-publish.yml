@@ -40,7 +40,7 @@ jobs:
 
   deploy:
     needs: build
-    runs-on: [atminstance1]
+    runs-on: [bankbackend]
     steps:
       - name: Install Docker
         run: |
@@ -52,5 +52,5 @@ jobs:
 
      
       - name: run Docker container
-        run: sudo docker run -d -p 8081:8080 --name atm-container thirumaleshd7013/atm:${{ github.sha }}
+        run: sudo docker run -d -p 8080:8080 --name atm-container thirumaleshd7013/atm:${{ github.sha }}
 

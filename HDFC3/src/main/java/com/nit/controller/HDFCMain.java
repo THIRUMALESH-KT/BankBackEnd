@@ -1,5 +1,8 @@
 package com.nit.controller;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nit.Entity.Address;
@@ -21,16 +25,19 @@ import com.nit.service.*;
 @CrossOrigin(origins = "https://atmdemoapplication.netlify.app")
 //@CrossOrigin(origins = "http://atmdemoapplication.netlify.app/")
 //@CrossOrigin(origins="http://localhost:4200")
+@RequestMapping("/customer")
 public class HDFCMain {
 
 	@Autowired
 	private CustomerService service;
-	@GetMapping("/hello")
-	public ResponseEntity<Object> main() {
-		return new ResponseEntity<Object>("hello page",HttpStatus.OK);
-		//
+	@GetMapping("/welcome")
+	public ResponseEntity<Object> welcome(){
+		Map<String , Object> map=new LinkedHashMap<String, Object>();
+		map.put("message ", "sucess");
+		map.put("result " , "welcome to welcome page");
+		map.put("status ", HttpStatus.OK);
+		return ResponseEntity.ok(map);
 	}
-	
 	@PostMapping("/create")
 	public String create(@RequestBody Customer customer) {
 		
