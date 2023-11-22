@@ -40,12 +40,12 @@ jobs:
 
   deploy:
     needs: build
-    runs-on: [bankbackend]
+    runs-on: [atmrunner]
     steps:
-#      - name: Install Docker
-#        run: |
-#          sudo apt-get update
-#          sudo apt-get -y install docker.io
+      - name: Install Docker
+        run: |
+          sudo apt-get update
+          sudo apt-get -y install docker.io
 
       - name: delete old container
         run: sudo docker rm -f atm-container
