@@ -47,8 +47,11 @@ public class HDFCMain {
 	
 //	get details using account number and customer name
 	
+	@CrossOrigin(origins = "https://atmdemoapplication.netlify.app")
 	@GetMapping("/login/{accountNumber}/{custName}")
 	public ResponseEntity<Object> CustomerLogin(@PathVariable Long accountNumber, @PathVariable String custName) {
+	    // Your existing code...
+
 		Customer cust=service.getOneCustomer(accountNumber);
 		if(cust!=null) {
 		if((cust.getFName()+" "+cust.getLName()).equals(custName)) {
